@@ -21,6 +21,20 @@ var demoApp = angular.module('demoApp', ['ngRoute'])
                 city: $scope.newCustomer.city
             });
         };
+
+        $scope.pollOptions = [1, 2];
+
+        $scope.addOption = function () {
+            $scope.pollOptions.push(new Date());
+        };
+
+        $scope.removeOption = function (index) {
+            $scope.pollOptions.splice(index, 1);
+        };
+
+        $scope.submit = function() {
+            console.log("Submitted!");
+        };
     })
 
     .config(function ($routeProvider) {
@@ -34,4 +48,29 @@ var demoApp = angular.module('demoApp', ['ngRoute'])
                 templateUrl: 'partials/view2.html'
             })
             .otherwise({redirectTo: '/view1'});
+    })
+
+    .directive('newoption', function () {
+        var linkFn = function (scope, element, attrs) {
+            element.bind("click", function() {
+                console.log("..." + angular.element("#newoption-placeholder").addClass("title"));
+            });
+        }
+
+        return {
+            restrict: 'A',
+            link: linkFn
+        }
+
+        //var validElement = angular.element("<div>{{model.input}}</div>");
+
+//        return {
+//            restrict: "A",
+//            //templateUrl: "newoption.html",
+//            link: function(scope, element) {
+//                element.bind("click", function() {
+//                    console.log("..." + $("#newoption-placeholder").attr("title"));
+//                })
+//            }
+//        }
     });

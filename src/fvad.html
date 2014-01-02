@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Create Poll</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+</head>
+
+<body ng-app="demoApp">
+<div class="container" ng-controller="SimpleController">
+    <h2>Create Poll</h2>
+    <p> </p>
+
+    <form novalidate name="pform">
+
+        <div class="row">
+            <div class="form-group col-sm-5">
+                <label>Question</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-5">
+                <input type="text" class="form-control" name="question" ng-model="question" required/>
+            </div>
+            <div class="form-group col-sm-pull-0">
+                <span class="help-block" ng-show="pform.question.$error.required">Required</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-5">
+                <label>Options</label>
+            </div>
+        </div>
+
+        <div ng-repeat="i in pollOptions">
+            <div class="row">
+                <div class="form-group col-sm-5">
+                    <input type="text" class="form-control" name="option1" ng-model="option1"/>
+                </div>
+                <div class="form-group col-sm-pull-0">
+                    <button class="btn btn-link" ng-click="removeOption($index)">X</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-5">
+                <button class="btn btn-primary" ng-click="addOption()">Add Option</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-5">
+                <button class="btn btn-primary" ng-disabled="pform.$invalid" ng-click="submit()">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<!--<script type='text/javascript' src="bootstrap/bootstrap.js"></script>-->
+<script type='text/javascript' src="ng/angular.js"></script>
+<script type='text/javascript' src="ng/angular-route.js"></script>
+
+<script src="controllers.js"></script>
+</body>
+</html>

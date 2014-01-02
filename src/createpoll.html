@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Create Poll</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+</head>
+
+<body ng-app="demoApp">
+    <div class="container" ng-controller="SimpleController">
+        <h2>Create Poll</h2>
+
+        <p>Instruction here.</p>
+
+        <form novalidate>
+            <div class="row">
+                <div class="form-group col-sm-5">
+                    <label>Question</label>
+                    <input type="text" class="form-control" required/>
+                </div>
+            </div>
+
+            <div id="optionsPlaceholder">
+                <div class="row">
+                    <div class="form-group  col-sm-5">
+                        <label>Options</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group  col-sm-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-5">
+                    <button class="btn btn-default" ng-click="addOption()">Add Option</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-5">
+                    <button class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--<script type='text/javascript' src="bootstrap/bootstrap.js"></script>-->
+    <script type='text/javascript' src="ng/angular.js"></script>
+    <script type='text/javascript' src="ng/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script src="controllers.js"></script>
+
+    <style type="text/css">
+        .css-form input.ng-invalid.ng-dirty {
+            background-color: #FA787E;
+        }
+
+        .css-form input.ng-valid.ng-dirty {
+            background-color: #78FA89;
+        }
+    </style>
+</body>
+</html>
